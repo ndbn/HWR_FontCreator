@@ -422,8 +422,11 @@ namespace HWR_FontCreator
 
                         for (int line = 0; line < aBmp.Rows; line++)
                         {
-                            Buffer.BlockCopy(aBmp.BufferData, line * aBmp.Pitch, imgdata,
-                                (topMargin + line) * imgSize + leftMargin, aBmp.Width);
+                            var BufferOffset = line * aBmp.Pitch;
+                            var ImgDataOffset = (topMargin + line) * imgSize + leftMargin;
+                            var BytesCopyCount = aBmp.Pitch; //aBmp.Width is size in pixels, actual size on bytes is aBmp.Pitch
+
+                            Buffer.BlockCopy(aBmp.BufferData, BufferOffset, imgdata, ImgDataOffset, BytesCopyCount);
                         }                        
                     }
                     //移动margin
