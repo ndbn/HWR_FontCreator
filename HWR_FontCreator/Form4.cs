@@ -44,10 +44,10 @@ namespace HWR_FontCreator
             
             answer.UseBoldFont = checkBox1.Checked;
             answer.CharSet = textBox3.Text;
-            answer.FontBaselineMod = float.Parse(textBox5.Text);
+            answer.FontBaselineMod = float.Parse(textBox5.Text, CultureInfo.InvariantCulture);
             answer.UseSpecialFont4Ascii = checkBox2.Checked;
             answer.AsciiNormalFontPath = textBox7.Text;           
-            answer.AsciiFontBaselineMod = float.Parse(textBox4.Text);
+            answer.AsciiFontBaselineMod = float.Parse(textBox4.Text, CultureInfo.InvariantCulture);
 
             //自动生成粗体
             if (checkBox3.Checked)
@@ -62,7 +62,7 @@ namespace HWR_FontCreator
             }
 
             answer.autoBold = checkBox3.Checked;
-            answer.autoBoldStrength = double.Parse(textBox8.Text);
+            answer.autoBoldStrength = double.Parse(textBox8.Text, CultureInfo.InvariantCulture);
         }
 
         private void button5_Click(object sender, EventArgs e)
